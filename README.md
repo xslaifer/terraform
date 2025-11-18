@@ -1,13 +1,27 @@
-TERRAFORM
+🏗️ Componentes Implementados
 
-Se contruye una infraestructura completa 
+📦 Infraestructura (IaC con Terraform)
+├── 🔐 IAM Role
+│   └── Permite comunicación segura con AWS SSM
+│
+├── 🌐 Red (VPC)
+│   ├── VPC principal
+│   ├── Subred privada
+│   ├── 2 subredes públicas
+│   ├── 🌉 NAT Gateway (salida a internet desde subred privada)
+│   └── 🌍 Internet Gateway (salida a internet desde subredes públicas)
+│
+├── 🛡️ Security Groups
+│   ├── SG del ALB → permite tráfico entrante por puerto 80
+│   └── SG de instancias → permite tráfico desde el ALB al puerto 80
+│
+├── ⚖️ Application Load Balancer (ALB)
+│   └── Distribuye tráfico entre múltiples instancias
+│
+├── 🎯 Target Group
+│   └── Grupo donde se registran las instancias del ASG
+│
+└── 📈 Auto Scaling Group (ASG)
+    └── Escala automáticamente las instancias según demanda
 
-Creacion de IAM Role (Que tendra la policy para poder comunicarse con el servicio SSM)
-Creacion de VPC y subredes (VPC, subred privada y 2 subredes publicas)
-Creacion de NAT GATEWAY para conexion a internet de vpc privadas y el internet gateway par salida a internet de vpc publicas
-Creacion de Secuirty Group (1 security group para que el ALB permite conexiones entrantes al puerto 80 y otro security group para las instancia que permitan se accedidas 
-al puerto 80 solo desde el ALB)
-Creacion de ALB
-Creacion de Target Group 
-Creacion de Auto Scaling Group
 
